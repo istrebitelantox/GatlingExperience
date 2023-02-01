@@ -8,10 +8,12 @@ import scala.concurrent.duration._
 
 class Test extends Simulation{
   val httpConf=http.baseUrl("https://demoqa.com/swagger/#/")
-  val snc=scenario("CodeFest") randomSwitch(
-    (50,newsList),
-    (50,newsItem)
+  val snc=scenario("Book Store") randomSwitch(
+    (25,postAuto),
+    (25,getUserId),
+    (25,postUser),
+    (25,deleteBook)
   )
 
-  setUp(snc.inject(constantUsersPerSec(100) during(15 seconds)).protocols(httpConf))
+  setUp(snc.inject(constantUsersPerSec(100) during(1 minutes)).protocols(httpConf))
 }
