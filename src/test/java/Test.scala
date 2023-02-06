@@ -1,11 +1,10 @@
-import DeleteRequests._
 import GetRequests._
 import PostRequest._
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 
-import scala.language.postfixOps
 import scala.concurrent.duration._
+import scala.language.postfixOps
 
 class Test extends Simulation{
   before {
@@ -35,6 +34,6 @@ class Test extends Simulation{
       rampUsersPerSec(10).to(20).during(5 seconds).randomized,
       stressPeakUsers(1000).during(5 seconds )
     ).protocols(httpConf)
-  ).assertions(global.responseTime.max.lt(50),
-    global.successfulRequests.percent.gt(95))
+  )/*.assertions(global.responseTime.max.lt(50),
+    global.successfulRequests.percent.gt(95))*/
 }

@@ -16,10 +16,10 @@ object PostRequest {
         .body(ElFileBody("body.json")).asJson
         .check(status.is(200))
     )
-  val userName = Iterator.continually {
+  private val userName = Iterator.continually {
     Map("userName" -> s"${Random.alphanumeric.take(20).mkString}@foo.com")
   }
-  val password = Iterator.continually {
+  private val password = Iterator.continually {
     Map("password" -> s"${Random.alphanumeric.take(20).mkString}@foo.com")
   }
   val postUser2 = feed(userName).feed(password)

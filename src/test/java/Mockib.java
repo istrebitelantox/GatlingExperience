@@ -18,8 +18,7 @@ public class Mockib {
     @Test
     public void bothServicesDoStuff() throws JsonProcessingException {
         service1.stubFor(get(urlEqualTo("https://demoqa.com/swagger/")));
-        Response response = RestAssured.given().when().body("body.json").post("/Account/v1/Authorized");
-        System.out.println(("Response:"+response.getBody().asString()));
+
 //        service2.stubFor(post(urlEqualTo("/blap")));
 
     }
