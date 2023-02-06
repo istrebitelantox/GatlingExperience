@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/Account/v1/User"
+  },
+  "response": {
+    "status": 201,
+    "jsonBody": {
+      "userId": "string",
+      "username": "string"
+    }
+  }
+}

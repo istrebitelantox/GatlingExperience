@@ -1,6 +1,8 @@
 import java.util.UUID
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
+import scala.util.Random
+
 object PostRequest {
   val postAuto = exec(http("postAuto")
     .post("/Account/v1/Authorized")
@@ -13,5 +15,18 @@ object PostRequest {
         .post("/Account/v1/User")
         .body(ElFileBody("body.json")).asJson
         .check(status.is(200))
+    )
+  val userName = Iterator.continually {
+    Map("userName" -> s"${Random.alphanumeric.take(20).mkString}@foo.com")
+  }
+  val password = Iterator.continually {
+    Map("password" -> s"${Random.alphanumeric.take(20).mkString}@foo.com")
+  }
+  val postUser2 = feed(userName).feed(password)
+    .exec(
+      http("postUser")
+        .post("/Account/v1/User")
+        .body(ElFileBody("body.json")).asJson
+        .check(status.is(201))
     )
 }

@@ -1,0 +1,10 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/Account/v1/Authorized"
+  },
+  "response": {
+    "status": 200,
+    "body": true
+  }
+}

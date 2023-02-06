@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/Account/v1/User/{UUID}"
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "userId": "string",
+      "username": "string"
+    }
+  }
+}
